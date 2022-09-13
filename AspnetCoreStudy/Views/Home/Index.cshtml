@@ -1,0 +1,35 @@
+﻿@*@{
+        var name = "홍길동";
+        var age = 100;
+    }
+
+    <h1>@name 님 환영합니다.</h1>
+
+
+    @if (age == 10)
+    {
+        <h2>@name 님은 @age 살입니다. </h2>
+    }
+    else
+    {
+        <h2>@name 님 나이를 알 수 없습니다.</h2>
+    }
+
+    @for (var index = 1; index < 10; index++)
+    {
+        <h3>@index 번째 입니다.</h3>
+    }*@
+@{
+
+}
+
+@*<h1>사용자 번호 : @Model.UserNo</h1>
+    <h1>사용자 이름 : @Model.UserName</h1>*@
+
+@*<h2>사용자 번호 : @ViewBag.User.UserNo</h2>
+
+    <h2>사용자 이름 : @ViewBag.User.UserName</h2>*@
+
+<h3>사용자 번호 : @ViewData["UserNo"]</h3>
+
+<h3>사용자 이름 : @ViewData["UserName"]</h3>
