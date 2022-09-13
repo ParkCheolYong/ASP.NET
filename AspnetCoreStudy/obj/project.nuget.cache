@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zctO4rn496O3Vh/CxoKDJ6YlZjnYnvbI5Ox/CXhsCHoaQIwviPUkUUFPMAWIIN6dx/Zy9bSRJSVnHlePAgXJrg==",
+  "dgSpecHash": "A/HX7cFP56RrFgqW/FhuwI6DrmiAWlSwaOBSklpcP/A/QU8hh2wN0Bl1+BDpJqePENpcytQMzEsOjDoeUhxxHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PCY\\Desktop\\박철용\\EGMAIN-FK 자료\\AspnetCoreStudy\\AspnetCoreStudy.csproj",
+  "projectFilePath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspnetCoreStudy\\AspnetCoreStudy.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",

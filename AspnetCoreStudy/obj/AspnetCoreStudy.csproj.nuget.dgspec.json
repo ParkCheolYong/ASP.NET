@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PCY\\Desktop\\박철용\\EGMAIN-FK 자료\\AspnetCoreStudy\\AspnetCoreStudy.csproj": {}
+    "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspnetCoreStudy\\AspnetCoreStudy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PCY\\Desktop\\박철용\\EGMAIN-FK 자료\\AspnetCoreStudy\\AspnetCoreStudy.csproj": {
+    "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspnetCoreStudy\\AspnetCoreStudy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PCY\\Desktop\\박철용\\EGMAIN-FK 자료\\AspnetCoreStudy\\AspnetCoreStudy.csproj",
+        "projectUniqueName": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspnetCoreStudy\\AspnetCoreStudy.csproj",
         "projectName": "AspnetCoreStudy",
-        "projectPath": "C:\\Users\\PCY\\Desktop\\박철용\\EGMAIN-FK 자료\\AspnetCoreStudy\\AspnetCoreStudy.csproj",
+        "projectPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspnetCoreStudy\\AspnetCoreStudy.csproj",
         "packagesPath": "C:\\Users\\PCY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PCY\\Desktop\\박철용\\EGMAIN-FK 자료\\AspnetCoreStudy\\obj\\",
+        "outputPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspnetCoreStudy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
