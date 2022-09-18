@@ -1,0 +1,13 @@
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\bin\Debug\netcoreapp3.1\Hello.IDAL.deps.json
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\bin\Debug\netcoreapp3.1\Hello.IDAL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\bin\Debug\netcoreapp3.1\Hello.IDAL.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\bin\Debug\netcoreapp3.1\Hello.Model.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\bin\Debug\netcoreapp3.1\Hello.Model.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.csproj.AssemblyReference.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.AssemblyInfoInputs.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.AssemblyInfo.cs
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.csproj.CoreCompileInputs.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.csproj.CopyComplete
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.IDAL\obj\Debug\netcoreapp3.1\Hello.IDAL.pdb

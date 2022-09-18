@@ -1,0 +1,15 @@
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\bin\Debug\netcoreapp3.1\Hello.MSSQL.DAL.deps.json
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\bin\Debug\netcoreapp3.1\Hello.MSSQL.DAL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\bin\Debug\netcoreapp3.1\Hello.MSSQL.DAL.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\bin\Debug\netcoreapp3.1\Hello.IDAL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\bin\Debug\netcoreapp3.1\Hello.Model.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\bin\Debug\netcoreapp3.1\Hello.IDAL.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\bin\Debug\netcoreapp3.1\Hello.Model.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.csproj.AssemblyReference.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.AssemblyInfoInputs.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.AssemblyInfo.cs
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.csproj.CoreCompileInputs.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.csproj.CopyComplete
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.MSSQL.DAL\obj\Debug\netcoreapp3.1\Hello.MSSQL.DAL.pdb

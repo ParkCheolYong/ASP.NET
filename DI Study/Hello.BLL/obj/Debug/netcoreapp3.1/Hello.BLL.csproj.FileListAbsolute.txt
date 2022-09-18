@@ -1,0 +1,14 @@
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\bin\Debug\netcoreapp3.1\Hello.BLL.deps.json
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\bin\Debug\netcoreapp3.1\Hello.BLL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\bin\Debug\netcoreapp3.1\Hello.BLL.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\bin\Debug\netcoreapp3.1\Hello.IDAL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\bin\Debug\netcoreapp3.1\Hello.Model.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\bin\Debug\netcoreapp3.1\Hello.IDAL.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\bin\Debug\netcoreapp3.1\Hello.Model.pdb
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\obj\Debug\netcoreapp3.1\Hello.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\obj\Debug\netcoreapp3.1\Hello.BLL.AssemblyInfoInputs.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\obj\Debug\netcoreapp3.1\Hello.BLL.AssemblyInfo.cs
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\obj\Debug\netcoreapp3.1\Hello.BLL.csproj.CoreCompileInputs.cache
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\obj\Debug\netcoreapp3.1\Hello.BLL.csproj.CopyComplete
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\obj\Debug\netcoreapp3.1\Hello.BLL.dll
+C:\Users\PCY\Desktop\박철용\ASP.NET\Hello\Hello.BLL\obj\Debug\netcoreapp3.1\Hello.BLL.pdb
