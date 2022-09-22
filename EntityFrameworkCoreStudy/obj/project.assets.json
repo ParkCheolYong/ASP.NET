@@ -5643,11 +5643,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\EntityFrameworkCoreStudy\\EntityFrameworkCoreStudy.csproj",
+      "projectUniqueName": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\EntityFrameworkCoreStudy\\EntityFrameworkCoreStudy.csproj",
       "projectName": "EntityFrameworkCoreStudy",
-      "projectPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\EntityFrameworkCoreStudy\\EntityFrameworkCoreStudy.csproj",
+      "projectPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\EntityFrameworkCoreStudy\\EntityFrameworkCoreStudy.csproj",
       "packagesPath": "C:\\Users\\PCY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\EntityFrameworkCoreStudy\\obj\\",
+      "outputPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\EntityFrameworkCoreStudy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j9Chypxo0w7Na9PyerR4d0MAffFi/EusCDDUcgmpJFbgtRimGCA/ukaLzm73cuIS+P6EOZ2dtEPoOVBfFJ8r0Q==",
+  "dgSpecHash": "mSk16jwWNojE+LNgk7oLcZOSszck8IqsvToyo5F9GCW9oLpHxkXCxH/Z4zlRqTQnsUPSw/v5wqYGPzbO8uUpyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\EntityFrameworkCoreStudy\\EntityFrameworkCoreStudy.csproj",
+  "projectFilePath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\EntityFrameworkCoreStudy\\EntityFrameworkCoreStudy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
