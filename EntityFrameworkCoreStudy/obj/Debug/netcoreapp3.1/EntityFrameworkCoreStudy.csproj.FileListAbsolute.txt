@@ -99,7 +99,6 @@ C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\bin\Debu
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\obj\Debug\netcoreapp3.1\EntityFrameworkCoreStudy.csproj.AssemblyReference.cache
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\obj\Debug\netcoreapp3.1\EntityFrameworkCoreStudy.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\obj\Debug\netcoreapp3.1\EntityFrameworkCoreStudy.AssemblyInfoInputs.cache
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\EntityFrameworkCoreStudy\obj\Debug\netcoreapp3.1\EntityFrameworkCoreStudy.AssemblyInfo.cs

@@ -39,14 +39,14 @@ namespace EntityFrameworkCoreStudy
 				//db.Users.Remove(user);
 				//db.SaveChanges();
 
-				var selectList = db.Users.ToList().Where(x => x.UserId == 3);
+				var selectList = db.Users
+					.Include(u => u.Position)
+					.ToList();
 
 				foreach (var user in selectList)
 				{
-					Console.WriteLine($"{user.UserId}.{user.UserName}({user.Birth})");
+					Console.WriteLine($"{user.UserId}.{user.UserName}({user.Birth}, {user.Position.PositionName})");
 				}
-
-
 			}
 		}
 	}
