@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj": {}
+    "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj": {
+    "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj",
+        "projectUniqueName": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj",
         "projectName": "AspNetCore",
-        "projectPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj",
+        "projectPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspNetCore\\AspNetCore\\AspNetCore.csproj",
         "packagesPath": "C:\\Users\\PCY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\AspNetCore\\AspNetCore\\obj\\",
+        "outputPath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspNetCore\\AspNetCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
