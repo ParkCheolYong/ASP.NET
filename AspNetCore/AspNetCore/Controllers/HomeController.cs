@@ -139,67 +139,134 @@ namespace AspNetCore.Controllers
 
 	//PartialView라고 반복적으로 등장하는 View -> 재사용할 수 있게 만들 수 있는데, 이름 앞에 _를 붙여야함.
 	// [!] _를 붙이면 _ViewStart가 적용되지 않는다.
+	/***********************************************************************************************/
 
+	// # Tag Helper (일종의 HTML Helper)
+	// 웹페이지에서 거꾸로 유저가 Submit을 받아서 로직이 이어서 실행이 되어야 할 때
+
+	// DataModel을 이용해서 유저 요청을 파싱할 수 있다 -> 서버 쪽에 데이터가 왔을 때의 처리에 관한 내용
+	// 클라에서 어떤 Controller /Action / 데이터를 보낼것인가?
+
+	// HTML로 손수 다 작성해도 되긴 함
+	// Tag Helper를 이용하면 쉽게 처리 가능함
+	/***********************************************************************************************/
+
+	// # WebAPI
+	// MVC의 View가 HTML을 반환하지 않고, JSON / XML 데이터를 반환하면 WebAPI
+	// 나머지 Routing, Model Binding, Validation, Response 등은 동일
+
+	// IActionResult 대신 List<string> 데이터를 반환하면 그게 WebAPI
+	// 이렇게 바로 Data를 반환하면, ApiModel이 적용되어 Asp.NET Core에서 default로 JSON으로 만들어서 보냄
+	// 그렇다고 해서 WebAPI가 꼭 데이터를 반환해야 하는건 아님 ex) 삭제요청 -> 성공여부를 Success 200, Fail 404 로 반환할 수 있음
+
+	// Asp.NET (Core 아님) 에서는 MVC / WebAPI가 분리되어 있었음
+	// Asp.NET Core로 넘어오면서 MVC / WebAPI가 동일한 프레임워크를 사용
+
+	/***********************************************************************************************/
+
+	// # Dependency Injection (DI, 종속성 주입)
+	// 등장이유 : 디자인패턴에서는 코드간 종속성을 줄이는 것을 중요하게 생각 (Loosely Coupled)
+
+	// 생성자에서 new를 해서 직접 만들어줘야 하는가? -> N
+
+	// 1) Request
+	// 2) Routing
+	// 3) Controller Activator (DI Container 한테 Controller 생성 + 알맞는 Dependency 연결 위탁)
+	// 4) DI Container 임무 실시
+	// 5) Controller가 생성 끝!
+
+	// 만약 3번에서 요청한 Dependency를 못 찾으면 -> Error
+	//  -> ConfigureServices에 등록을 해야한다
+
+	// 서비스 등록 방법
+	// - Service Type (인터페이스 or 클래스)
+	// - Implementation Type (클래스)
+	// - LifeTime (Transient, Scoped, Singleton)
+	// AddTransient, AddScoped, AddSingleton
+
+	// 원한다면 동일한 인터페이스에 대해 다수의 서비스 등록 가능 -> IEnumerable<IBaseLogger>
+
+	// 보통 생성자에서 DI를 하는게 국룰이지만 Action에서도 [FromServices]를 이용해서 DI를 붙일 수 있음
+
+	// Razor View Template에서도 서비스가 필요하다면? 
+	// -> 이경우 생상자를 사용할 수 없으니 -> @inject 사용
+
+	// LifeTime
+	// DI Container에 특정 서비스를 달라고 요청하면 
+	//  1) 새로 만들어서 반환 하거나
+	//  2) 이미 만들어져 있는걸 반환 하거나
+	// 즉, 서비스 instance를 재사용 할지 말지를 결정
+
+	// Transient - 생명주기 짧음 (항상 새로운 서비스 instance를 만든다. 매번 new)
+	// Scoped    - 생명주기 중간 (동일한 요청(HTTP Request) 내에서만 같음. DbContext, Authentication 등) << 가장 일반적으로 사용됨
+	// Singleton - 생명주기 김   (항상 동일한 instance를 사용) << 절대바뀌지 않는 수학공식등에 사용할 수 있음
+	//  - 웹에서의 싱글톤은 thread-safe 해야 함
+
+	// 당연한 
+
+	public interface IBaseLogger
+	{
+		public void Log(string log);
+	}
+
+	public class DbLogger : IBaseLogger
+	{
+		public DbLogger() { }
+
+		public void Log(string log)
+		{
+			Console.WriteLine($"Log Ok {log}");
+		}
+	}
+
+	public class FileLogSettings
+	{
+		string _filename;
+		public FileLogSettings(string filename)
+		{
+			_filename = filename;
+		}
+	}
+	public class FileLogger : IBaseLogger
+	{
+		FileLogSettings _settings;
+		public FileLogger(FileLogSettings settings)
+		{
+			_settings = settings;
+		}
+
+		public void Log(string log)
+		{
+			Console.WriteLine($"Log Ok {log}");
+		}
+	}
+
+	[Route("Home")]
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
+		IEnumerable<IBaseLogger> _logger;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(IEnumerable<IBaseLogger> logger)
 		{
 			_logger = logger;
 		}
 
-		// 기본적으로 Views\Controller\Action.cshtml을 템플릿으로 사용
-		public IActionResult Test()
-		{
-			//상대경로
-			//return View("Privacy");
-
-			//절대경로 -> Views와 .cshtml을 다 추가해줘야함
-			//return View("Views/Shared/Error.cshtml");
-
-			TestViewModel testViewModel = new TestViewModel()
-			{
-				Names = new List<string>()
-				{
-					 "Faker", "Deft", "Dopa"
-				}
-			};
-
-			return View(testViewModel); // View -> new ViewResult
-		}
-
-		//public IActionResult Test2(TestModel testModel)
-		//{
-		//	if (!ModelState.IsValid)
-		//		return RedirectToAction("Error");
-
-		//	return null;
-		//}
-
-		// 1) names[0]=Faker&names[1]=Deft
-		// 2) [0]=Faker&[1]Deft
-		// 3) names=Faker&names=Deft
-		//public IActionResult Test3(List<string> names)
-		//{
-		//	return null;
-		//}
-
+		[Route("Index")]
+		[Route("/")]
 		public IActionResult Index()
 		{
-			//string url = Url.Action("Privacy", "Home");
-			//string url = Url.RouteUrl("test", new { test = 123 });
+			//_logger.Log("Log Test");
 
-			//return Redirect(url);
-
-			return RedirectToAction("Privacy");
+			return Ok();
 		}
 
+		[Route("Privacy")]
 		public IActionResult Privacy()
 		{
 			return View();
 		}
 
+		[Route("Error")]
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{

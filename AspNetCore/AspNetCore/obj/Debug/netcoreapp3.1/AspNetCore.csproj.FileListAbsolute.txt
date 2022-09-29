@@ -75,3 +75,4 @@ C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\AspNetCore\AspNetCore\obj\Debug\n
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\AspNetCore.genruntimeconfig.cache
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\AspNetCore.csproj.CopyComplete
 C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.cs
+C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test2.cshtml.g.cs

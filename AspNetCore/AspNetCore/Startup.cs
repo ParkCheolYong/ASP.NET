@@ -1,3 +1,4 @@
+using AspNetCore.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,12 @@ namespace AspNetCore
 			services.AddControllersWithViews();
 			// DI 서비스란? SRP (Single Responsibility Principle)
 			// ex) 랭킹 관련 기능이 필요하면 -> 랭킹 서비스
+
+			services.AddSingleton<IBaseLogger, FileLogger>();
+
+			services.AddSingleton(new FileLogSettings("log.txt"));
+
+			services.AddSingleton<IBaseLogger, DbLogger>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -111,21 +118,23 @@ namespace AspNetCore
 				// RedirectToAction()
 				// RedirectToRoute()
 
-				endpoints.MapControllerRoute(
-					name: "test",
-					pattern: "api/{test}",
-					defaults: new { controller = "Home", action = "Privacy"},
-					constraints: new { test = new IntRouteConstraint()});
+				//endpoints.MapControllerRoute(
+				//	name: "test",
+				//	pattern: "api/{test}",
+				//	defaults: new { controller = "Home", action = "Privacy"},
+				//	constraints: new { test = new IntRouteConstraint()});
 
-				//라우팅 패턴 설정
-				endpoints.MapControllerRoute(
-					name: "default",
-					pattern: "{controller=Home}/{action=Index}/{id?}");
+				////라우팅 패턴 설정
+				//endpoints.MapControllerRoute(
+				//	name: "default",
+				//	pattern: "{controller=Home}/{action=Index}/{id?}");
 
-				endpoints.MapControllerRoute(
-					name: "joker",
-					pattern: "{*joker}",
-					defaults: new { controller = "Home", action = "Error" });
+				//endpoints.MapControllerRoute(
+				//	name: "joker",
+				//	pattern: "{*joker}",
+				//	defaults: new { controller = "Home", action = "Error" });
+
+				endpoints.MapControllers();
 			});
 		}
 	}

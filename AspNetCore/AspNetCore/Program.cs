@@ -23,6 +23,7 @@ namespace AspNetCore
 				{
 					// 2) Startup 클래스 지정
 					webBuilder.UseStartup<Startup>();
+					webBuilder.UseDefaultServiceProvider(opt => opt.ValidateScopes = true); // DI 생명주기 확인
 				});
 	}
 }

@@ -1,0 +1,30 @@
+﻿@{
+	ViewData["Title"] = "Test Buy Item";
+}
+
+@model TestViewModel2
+
+@* PartialView 사용 *@
+@section Scripts{
+	@Html.Partial("_ValidationScriptsPartial")
+}
+
+<h1>Hello Razor Template</h1>
+
+@* input의 asp-for는 내용 출력뿐 아니라, input의 type도 결정하는데 도움 준다 *@
+@* number, text, hidden, password, tel, email, url, date..... *@
+@* property가 어떤 형식인지, [EmailAddress], [Url]과 같은 Attribute가 붙었는지에 따라 *@
+<form asp-action="BuyItem" asp-controller="Home" asp-route-id="@Model.Id" asp-route-count="@Model.Count">
+	<div class="form-group">
+		<label asp-for="Id"></label>
+		<input class="form-control" asp-for="Id"/>
+		<span asp-validation-for="Id"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Count"></label>
+		<input class="form-control" asp-for="Count"/>
+		<span asp-validation-for="Count"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+	<div asp-validation-summary="All"></div>
+</form>
