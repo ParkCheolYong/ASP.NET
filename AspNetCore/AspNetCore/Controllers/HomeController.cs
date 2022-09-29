@@ -1,6 +1,8 @@
 ﻿using AspNetCore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -201,61 +203,90 @@ namespace AspNetCore.Controllers
 	// Scoped    - 생명주기 중간 (동일한 요청(HTTP Request) 내에서만 같음. DbContext, Authentication 등) << 가장 일반적으로 사용됨
 	// Singleton - 생명주기 김   (항상 동일한 instance를 사용) << 절대바뀌지 않는 수학공식등에 사용할 수 있음
 	//  - 웹에서의 싱글톤은 thread-safe 해야 함
+	/***********************************************************************************************/
 
-	// 당연한 
+	// # Configuration
+	// 외부로 값을 빼서 설정
+	//  1) 설정값
+	//  2) 비밀값 (ConnectionString)
 
-	public interface IBaseLogger
+	// 대부분의 설정들은 CreateDefaultBuilder에서 발생
+	//  1) ConfigureAppConfiguration  << App 설정 / 비밀값 관리
+	//  2) ConfigureLogging           << Logging
+	//  3) UseDefaultServiceProvider  << DI Container 설정
+	//  4) UseKestrel				  << Kestrel
+	//  5) ConfigureServices		  << Services
+	//  6) UseIISIntegration          << IIS를 ReverseProxy 설정
+
+	// Configuration Step
+	//  1) ConfigurationBuilder 만든다
+	//  2) 각종 ExtensionMethod를 이용해서 설정 방법 추가
+	//   - AddJsonFile() -> JsonConfigurationProvider에 의해 설정값을 추가한다
+	//   - AddCommendLine() -> CommendLineProvider에 의해 설정값을 추가한다
+	//   - AddEnvironmentVariables() - 환경변수에 의해 설정값을 추가한다
+	//   - 그 외) XML, Azure Key ...
+	//  3) Build() 실행
+	//  4) IConfigurationRoot에 결과물 저장
+	//  5) IConfiguration에 결과물 저장
+
+	// 실제 ConfigureAppConfiguration 코드 분석 결과 순서
+	//  1) JSON file provider (appsettings.json)
+	//  2) JSON file provider (appsettings.{ENV}.json)
+	//  3) UserSecrets  << Development 환경일때만
+	//  4) Env Variable (환경변수)
+	//  5) CommandLine
+	// 마지막에 등록하는 Provider가 덮어쓴다
+
+	// Secret : 비밀스러운 Config
+	// 비밀번호, DB ConnectionString
+	// 대안으로 환경 변수 사용을 고려할 수 있음 (appsettings.json 보다 후순위이기 때문에)
+	// 개발환경이라면 UserSecrets 사용 -> 솔루션 우클릭 -> 사용자 암호 관리 -> screts.json
+
+	// _configuration["Logging:LogLevel:Default"]; 처럼 문자열로 값을 가져오는 방법 외에
+	//  1) 모델링 클래스 (POCO) 하나를 만든다. 만들때 public getter/setter 도 만들어 준다
+	//  2) Startup에 등록
+	//  3) IOptions<>로 DI
+	// 이 방법은 Reload 적용 X
+	// Reload가 필요하다면 IOptionsSnapshot<> 사용
+
+	// 개발 환경에 따른 Configuration
+	// 개발 단계, Live 단계 등에 따라 로깅을 다르게 한다거나
+	// ASP.NET Core에서 현재 환경을 알아내는 방법은 ASPNETCORE_ENVIRONMENT라는 환경변수 이용
+	//  - Development
+	//  - Staging
+	//  - Production
+	// 위의 이름을 사용하는걸 추천 : 관련 헬퍼 클래스들이 이미 만들어져 있기 때문 ex) IWebHostEnvironment의 IsDevelopment()
+	public class TestObject
 	{
-		public void Log(string log);
-	}
-
-	public class DbLogger : IBaseLogger
-	{
-		public DbLogger() { }
-
-		public void Log(string log)
-		{
-			Console.WriteLine($"Log Ok {log}");
-		}
-	}
-
-	public class FileLogSettings
-	{
-		string _filename;
-		public FileLogSettings(string filename)
-		{
-			_filename = filename;
-		}
-	}
-	public class FileLogger : IBaseLogger
-	{
-		FileLogSettings _settings;
-		public FileLogger(FileLogSettings settings)
-		{
-			_settings = settings;
-		}
-
-		public void Log(string log)
-		{
-			Console.WriteLine($"Log Ok {log}");
-		}
+		public string Id { get; set; }
+		public string Password { get; set; }
 	}
 
 	[Route("Home")]
 	public class HomeController : Controller
 	{
-		IEnumerable<IBaseLogger> _logger;
+		public IConfiguration _configuration { get; }
+		public IOptions<TestObject> _options;
 
-		public HomeController(IEnumerable<IBaseLogger> logger)
+		public HomeController(IConfiguration configuration, IOptions<TestObject> options)
 		{
-			_logger = logger;
+			_configuration = configuration;
+			_options = options;
 		}
 
 		[Route("Index")]
 		[Route("/")]
 		public IActionResult Index()
 		{
-			//_logger.Log("Log Test");
+			var test1 = _configuration["Test:Id"];
+			var test2 = _configuration["Test:Password"];
+
+			var test3 = _configuration["Logging:LogLevel:Default"];
+			var test4 = _configuration.GetSection("Logging")["LogLevel:Default"];
+			var test5 = _configuration["secret"];
+
+			var test6 = _options.Value.Id;
+			var test7 = _options.Value.Password;
 
 			return Ok();
 		}
