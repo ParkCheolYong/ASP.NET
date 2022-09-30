@@ -26,10 +26,13 @@ namespace AspNetCore
 		// 각종 서비스 추가 (DI)
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllersWithViews();
+			services.AddControllersWithViews(options =>
+			{
+				options.Filters.Add<TestResourceFilter>();
+			});
+
 			// DI 서비스란? SRP (Single Responsibility Principle)
 			// ex) 랭킹 관련 기능이 필요하면 -> 랭킹 서비스
-			services.Configure<TestObject>(Configuration.GetSection("Test"));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

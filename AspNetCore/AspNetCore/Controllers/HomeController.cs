@@ -1,5 +1,7 @@
 ﻿using AspNetCore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -256,37 +258,116 @@ namespace AspNetCore.Controllers
 	//  - Staging
 	//  - Production
 	// 위의 이름을 사용하는걸 추천 : 관련 헬퍼 클래스들이 이미 만들어져 있기 때문 ex) IWebHostEnvironment의 IsDevelopment()
-	public class TestObject
+	/***********************************************************************************************/
+
+	// # Filter
+	// MVC Filter 파이프라인
+	// 필터링 -> 허가받은 사람들만 특정 Action에 접근할 수 있게
+	// ex) 로그인한 유저들에게만 보이게 한다거나
+	// 필터가 없으면, 이런 코드를 모든 Action에 일일히 입력 해야한다.
+
+	// 다양한 시점에 필터를 추가할 수 있음
+
+	// 1) HTTP Request
+	// 2) Routing
+	//  - 필터
+	// 3) Model Binding / Validation
+	//  - 필터
+	// 4) Action
+	//  - 필터
+	// 5) ViewResult
+	//  - 필터
+	// 6) HTML Response
+
+	// 필터 종류
+	// 1) Authorization Filter
+	//  - 권한이 있는지 확인. 모든 필터 중 가장 먼저 실행 -> 권한이 없으면 흐름을 가로채서 바로 빠져나감
+	// 2) Resource Filter
+	//  - 1번 다음으로 추가, 맨 마지막도 가능, 공용 코드를 넣어서 사용
+	// 3) Action Filter
+	//  - Action 호출 전후에 처리
+	// 4) Exception Filter
+	//  - 예외가 일어났을 때
+	// 5) Result Filter
+	//  - IActionResult 전후에 처리
+
+	// Request                    Response
+	// [Authorization]  ------>
+	// [Resource]                 [Resource]
+	// Model Binding
+	// Validation
+	// [Action]                  
+	// Action
+	// [Action]
+	// [Exception]
+	// [Result]                   [Result]
+	//               IActionResult
+
+	// 미들웨어 vs 필터
+	// 1) 방향성
+	//  - 미들웨어는 항상 양방향 (In / Out)
+	//  - 필터 (Resource, Action, Result 2번, 나머지 1번) 
+	// 2) Request 종류
+	//  - 미들웨어는 모든 Request에 대해
+	//  - 필터는 MVC 미들웨어와 연관된 Request에 대해서만 실행
+	//  Asp.Net Core 2.x -> AddMvc, 3.x -> AddControllersWithViews가 담당
+	// 미들웨어는 더 일반적이고 광범위 하다
+	// 필터는 MVC 미들웨어에서 동작하는 2차 미들웨어 정도로 이해 가능
+	// 3) 적용범위
+	// 필터는 전체 / 특정 Controller/ 특정 Action 적용 범위를 골라서 적용 , 미들웨어는 불가
+	// 필터는 MVC의 ModelState, IActionResult등 세부 정보에 접근 가능 
+
+	// 필터 만들기
+	//  - IAuthorizationFilter, IAsyncAuthorizationFilter
+	//  - IResourceFilter, IAsyncResourceFilter
+	//  ...
+
+	// Filter '기본' 실행 순서
+	// Global
+	// Controller
+	// Action
+	// (~Executing) 넓은 순서 (Global -> Controller -> Action)
+	// (~Executed) 좁은 순서 (Action -> Controller -> Global)
+
+	// IOrderedFilter 사용하여 명시적으로 순서를 지정할 수도 있음
+	// Order가 작을수록 먼저 실행
+	// Order가 같은 경우에만 '기본' 실행 순서 적용
+
+	// Authorization (인증/권한) *중요한 Filter*
+	// IAuthorizationFilter를 이용해서 재정의 가능하지만
+	// 이미 만들어져 있는 기본 Authorization Filter 사용 권고 (기능이 충분히 많음)
+	// [Authorize]
+
+	public class TestResourceFilter : Attribute, IResourceFilter, IOrderedFilter
 	{
-		public string Id { get; set; }
-		public string Password { get; set; }
+		public int Order => -1;
+
+		// 전
+		public void OnResourceExecuting(ResourceExecutingContext context)
+		{
+			Console.WriteLine("Resource Executing");
+		}
+
+		// 후
+		public void OnResourceExecuted(ResourceExecutedContext context)
+		{
+			Console.WriteLine("Resource Executed");
+		}
 	}
 
 	[Route("Home")]
 	public class HomeController : Controller
 	{
-		public IConfiguration _configuration { get; }
-		public IOptions<TestObject> _options;
-
-		public HomeController(IConfiguration configuration, IOptions<TestObject> options)
+		public HomeController()
 		{
-			_configuration = configuration;
-			_options = options;
 		}
 
 		[Route("Index")]
 		[Route("/")]
+		[TestResourceFilter]
+		[Authorize]
 		public IActionResult Index()
 		{
-			var test1 = _configuration["Test:Id"];
-			var test2 = _configuration["Test:Password"];
-
-			var test3 = _configuration["Logging:LogLevel:Default"];
-			var test4 = _configuration.GetSection("Logging")["LogLevel:Default"];
-			var test5 = _configuration["secret"];
-
-			var test6 = _options.Value.Id;
-			var test7 = _options.Value.Password;
 
 			return Ok();
 		}
