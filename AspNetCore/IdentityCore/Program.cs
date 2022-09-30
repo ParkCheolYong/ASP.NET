@@ -20,7 +20,15 @@ namespace IdentityCore
 			Host.CreateDefaultBuilder(args)
 				.ConfigureWebHostDefaults(webBuilder =>
 				{
-					webBuilder.UseStartup<Startup>();
+					webBuilder
+						.UseStartup<Startup>()
+						.ConfigureLogging((ctx,builder) => 
+						{
+							builder.AddConfiguration(ctx.Configuration.GetSection("Logging"));
+							builder.AddConsole();
+							builder.AddFile();
+							builder.AddSeq();
+						});
 				});
 	}
 }

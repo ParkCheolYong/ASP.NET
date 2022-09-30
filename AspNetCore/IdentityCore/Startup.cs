@@ -37,23 +37,6 @@ namespace IdentityCore
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 			services.AddControllersWithViews();
 			services.AddRazorPages();
-
-			services.AddAuthorization(options =>
-			{
-				options.AddPolicy("AdminPolicy", policy => policy.RequireClaim("IsAdmin"));
-				//options.AddPolicy("AdminPolicy", policy => policy.RequireClaim(ClaimTypes.Email,"pcy4257@gamil.com"));
-				//options.AddPolicy("AdminPolicy", policy => policy.RequireAuthenticatedUser());
-				//options.AddPolicy("AdminPolicy", policy => policy.RequireAssertion(p => p.User.HasClaim(c => c.Type == ClaimTypes.Email)));
-
-				options.AddPolicy("EnterPolicy", policy =>
-				{
-					policy.AddRequirements(new CanEnterRequirment(20, 30), new IsNotBlackListRequirement());
-				});
-			});
-
-			services.AddSingleton<IAuthorizationHandler, AgeHandler>();
-			services.AddSingleton<IAuthorizationHandler, IsVipHandler>();
-			services.AddSingleton<IAuthorizationHandler, IsUnbannedHandler>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,17 @@
+2022-10-01 00:48:07.697 +09:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5001
+2022-10-01 00:48:07.729 +09:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5000
+2022-10-01 00:48:07.733 +09:00 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2022-10-01 00:48:07.736 +09:00 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2022-10-01 00:48:07.740 +09:00 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\AspNetCore\IdentityCore
+2022-10-01 00:48:11.748 +09:00 [Information] TestCategory: Hello Log!
+2022-10-01 00:48:11.756 +09:00 [Information] TestCategory: Hello pcy
+2022-10-01 00:48:11.758 +09:00 [Information] TestCategory: Hello pcy
+2022-10-01 00:54:31.824 +09:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5001
+2022-10-01 00:54:31.842 +09:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5000
+2022-10-01 00:54:31.845 +09:00 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2022-10-01 00:54:31.847 +09:00 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2022-10-01 00:54:31.848 +09:00 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\PCY\Desktop\박철용\ASP.NET\ASP.NET\AspNetCore\IdentityCore
+2022-10-01 00:54:34.776 +09:00 [Information] TestCategory: Hello Log!
+2022-10-01 00:54:34.780 +09:00 [Information] TestCategory: Hello pcy
+2022-10-01 00:54:34.783 +09:00 [Information] TestCategory: Hello pcy
+2022-10-01 00:54:48.797 +09:00 [Information] Microsoft.Hosting.Lifetime: Application is shutting down...

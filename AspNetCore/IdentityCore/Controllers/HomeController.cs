@@ -55,101 +55,79 @@ namespace IdentityCore.Controllers
 	// Authorization 수동처리
 	// Action 내부에서 조건에 따라 유동적으로 처리하고 싶다면?
 	// IAuthorizationService
+	/***********************************************************************************************/
 
-	public class CanEnterRequirment : IAuthorizationRequirement
-	{
-		public int MinAge { get; }
-		public int MaxAge { get; }
+	// # 로깅
+	// - 버그를 찾을 때
 
-		public CanEnterRequirment(int minAge, int maxAge)
-		{
-			MinAge = minAge;
-			MaxAge = maxAge;
-		}
-	}
+	// ILogger : 로깅을 하는 주체
+	// ILoggerProvider : 어디에 로깅을 할지
+	//  - ConsoleLoggerProvider, FileLoggerProvider
 
-	public class AgeHandler : AuthorizationHandler<CanEnterRequirment>
-	{
-		protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, CanEnterRequirment requirement)
-		{
-			Claim claim =  context.User.Claims.FirstOrDefault(c => c.Type == "Age");
-			if (claim != null)
-			{
-				int age = int.Parse(claim.Value);
-				if (requirement.MinAge <= age && age <= requirement.MaxAge)
-				{
-					context.Succeed(requirement);
-				}
-			}
+	// DI를 이용해 ILogger 주입
 
-			// Requirement가 만족되지 않았으면 아무것도 안 함.
-			return Task.CompletedTask;
-		}
-	}
+	// 로깅과 관련된 요소들
+	// - LogLevel : 중요도
+	// - Event Category : ILogger<T> 의 T
+	// - Message : 로깅 메세지 (Hello Log!)
+	//   -- Parameters : 로깅 메세지를 Placeholder로 남길 경우 필요  
+	// - Exception : 예외가 일어났을 때 Exception 객체를 같이 넘길 수 있음
+	// - EventId : 기본값 0, 일종의 이벤트 그룹 (동일한 유형을 구분하게 부여)
 
-	public class IsVipHandler : AuthorizationHandler<CanEnterRequirment>
-	{
-		protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, CanEnterRequirment requirement)
-		{
-			Claim claim = context.User.Claims.FirstOrDefault(c => c.Type == "IsVip");
-			if (claim != null)
-			{
-				bool vip = bool.Parse(claim.Value);
-				if (vip)
-				{
-					context.Succeed(requirement);
-				}
-			}
+	// LogLevel
+	//  - Critical (메모리 부족, 디스크 용량 부족)
+	//  - Error (DB 에러, 널 크래시)
+	//  - Warning (어떤 코드가 예측한 것과 다르게 동작할때)
+	//  - Information (유저가 접속할때 등)
+	//  - Debug (개발단계에서 디버깅 용도)
 
-			// Requirement가 만족되지 않았으면 아무것도 안 함.
-			return Task.CompletedTask;
-		}
-	}
+	// LogCategory
+	// 기본적으로 Controller 이름
+	// DI해서 이름 바꿀 수도 있음
 
-	public class IsNotBlackListRequirement : IAuthorizationRequirement
-	{
+	// Message
+	//  - 메시지 내용
+	//  - Placeholder를 사용하는게 좋은가?
+	//  - 최종 문자열 형태의 Message 결과문은 같음
+	//  - Placeholder 사용하면 인자들에 대한 Key/Value 짝도 관리함
+	//  - 경우에 따라 그냥 단순한 문자열 결과물만 만드는게 아니라 추가 검색을 위해 인자들을 따로 로그를 찍는 경우도 있음
 
-	}
+	// Logging Provider
+	//  - 콘솔 로깅은 개발 단계에서만 유용
+	// 로그를 파일로 남기고 싶다면 -> NetEscapades
 
-	public class IsUnbannedHandler : AuthorizationHandler<IsNotBlackListRequirement>
-	{
-		protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, IsNotBlackListRequirement requirement)
-		{
-			Claim claim = context.User.Claims.FirstOrDefault(c => c.Type == "IsBanned");
-			if (claim != null)
-			{
-				context.Fail();
-				//bool banned = bool.Parse(claim.Value);
-				//if (banned)
-				//{
-				//	context.Fail();
-				//}
-				//else
-				//{
-				//	context.Succeed(requirement);
-				//}
-			}
+	// LogVerbosity
+	// 로깅이 편리하지만 너무 많이지면 보기가 힘들다
+	// 원하는 수준만 로그가 찍히도록 규칙을 정한다
 
-			// Requirement가 만족되지 않았으면 아무것도 안 함.
-			return Task.CompletedTask;
-		}
-	}
+	// Structure Logging
+	// 순수 문자열 로깅은 문제가 터졌을 때 상세 정보를 알기 힘듬
+	// Seq, Elasticsearch
 
 	[Authorize]
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
+		private readonly ILogger _logger;
+
+
 		private IAuthorizationService _auth;
 
-		public HomeController(ILogger<HomeController> logger, IAuthorizationService auth)
+		public HomeController(ILoggerFactory factory, IAuthorizationService auth)
 		{
-			_logger = logger;
+			_logger = factory.CreateLogger("TestCategory");
 			_auth = auth;
 		}
 
 		[AllowAnonymous]
 		public IActionResult Index()
 		{
+			_logger.LogInformation("Hello Log!");
+
+			string name = "pcy";
+
+			_logger.LogInformation($"Hello {name}");
+			_logger.LogInformation("Hello {0}", name);
+
 			return View();
 		}
 

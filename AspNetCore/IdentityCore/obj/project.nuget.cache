@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RLxng/4nHiUUKSsl0RUiSP1LF2MLH9njOIbak8jN4VGPIgMs4cllU3CBDV/AOdZxcT0xKP4z14bgy9s8s0yyxQ==",
+  "dgSpecHash": "y82ez+jHiMiIkr1SYibhwp8q3pG3NY97kQA1uvIODFlL89VgT1r4FJBkr5xgl4tZ66Pvr5zX9KpRwCfFHr5iQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PCY\\Desktop\\박철용\\ASP.NET\\ASP.NET\\AspNetCore\\IdentityCore\\IdentityCore.csproj",
   "expectedPackageFiles": [
@@ -43,7 +43,9 @@
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.25\\microsoft.extensions.identity.stores.3.1.25.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.extensions.logging\\3.1.28\\microsoft.extensions.logging.3.1.28.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.28\\microsoft.extensions.logging.abstractions.3.1.28.nupkg.sha512",
+    "C:\\Users\\PCY\\.nuget\\packages\\microsoft.extensions.logging.configuration\\3.1.22\\microsoft.extensions.logging.configuration.3.1.22.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.extensions.options\\3.1.28\\microsoft.extensions.options.3.1.28.nupkg.sha512",
+    "C:\\Users\\PCY\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\3.1.22\\microsoft.extensions.options.configurationextensions.3.1.22.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.28\\microsoft.extensions.primitives.3.1.28.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.identity.client\\3.0.8\\microsoft.identity.client.3.0.8.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.5.0\\microsoft.identitymodel.jsonwebtokens.5.5.0.nupkg.sha512",
@@ -63,6 +65,7 @@
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\3.1.5\\microsoft.visualstudio.web.codegenerators.mvc.3.1.5.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\PCY\\.nuget\\packages\\netescapades.extensions.logging.rollingfile\\2.4.1\\netescapades.extensions.logging.rollingfile.2.4.1.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
@@ -86,6 +89,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\PCY\\.nuget\\packages\\seq.extensions.logging\\6.1.0\\seq.extensions.logging.6.1.0.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\PCY\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
