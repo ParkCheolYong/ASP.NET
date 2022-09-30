@@ -3,6 +3,7 @@ using IdentityCore.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -42,6 +43,32 @@ namespace IdentityCore
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			//app.Run(async (context) =>
+			//{
+			//	context.Response.ContentType = "text/plain";
+			//	await context.Response.WriteAsync("Hello Middleware");
+			//});
+
+			//app.Map("/secret", branch =>
+			//{
+			//	 branch.Run(async (context) =>
+			//	 {
+			//		 context.Response.ContentType = "text/plain";
+			//		 await context.Response.WriteAsync("Hello Middleware");
+			//	 });
+			//});
+
+			//app.Use(async (context, next) => 
+			//{
+			//	//Request
+			//	Console.WriteLine("Request Middleware");
+			//	await next(); // <- 그 다음 미들웨어로 (없으면 shortcut)
+			//	Console.WriteLine("Response Middleware");
+			//	//Response
+			//});
+
+			app.UseMiddleware<TestMiddleware>();
+
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();

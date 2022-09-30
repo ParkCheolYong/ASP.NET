@@ -38,6 +38,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.25",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
           "NetEscapades.Extensions.Logging.RollingFile": "2.4.1",
+          "Seq.Extensions.Logging": "6.1.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -132,14 +133,12 @@
           "Microsoft.Extensions.Http": "3.1.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.Localization": "3.1.0.0",
-          "Microsoft.Extensions.Logging.Configuration": "3.1.0.0",
           "Microsoft.Extensions.Logging.Console": "3.1.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.1.0.0",
           "Microsoft.Extensions.Logging.EventLog": "3.1.0.0",
           "Microsoft.Extensions.Logging.EventSource": "3.1.0.0",
           "Microsoft.Extensions.Logging.TraceSource": "3.1.0.0",
           "Microsoft.Extensions.ObjectPool": "3.1.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.0.0",
           "Microsoft.Extensions.Options.DataAnnotations": "3.1.0.0",
           "Microsoft.Extensions.WebEncoders": "3.1.0.0",
           "Microsoft.JSInterop": "3.1.0.0",
@@ -988,6 +987,21 @@
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Configuration/3.1.22": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "3.1.28",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.22"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.dll": {
+            "assemblyVersion": "3.1.22.0",
+            "fileVersion": "3.100.2221.57103"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.dll": {}
+        }
+      },
       "Microsoft.Extensions.Options/3.1.28": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.28",
@@ -1001,6 +1015,23 @@
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.22": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.28",
+          "Microsoft.Extensions.Configuration.Binder": "3.1.28",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.28",
+          "Microsoft.Extensions.Options": "3.1.28"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "assemblyVersion": "3.1.22.0",
+            "fileVersion": "3.100.2221.57103"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
       "Microsoft.Extensions.Primitives/3.1.28": {
@@ -1409,6 +1440,22 @@
             "assetType": "native",
             "fileVersion": "4.6.25512.1"
           }
+        }
+      },
+      "Seq.Extensions.Logging/6.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "3.1.28",
+          "Microsoft.Extensions.Logging": "3.1.28",
+          "Microsoft.Extensions.Logging.Configuration": "3.1.22"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Seq.Extensions.Logging.dll": {
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Seq.Extensions.Logging.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -2921,12 +2968,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Logging.Configuration/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.Configuration.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.Logging.Console/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Logging.Console.dll": {}
@@ -2960,12 +3001,6 @@
       "Microsoft.Extensions.ObjectPool/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.ObjectPool.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         },
         "compileOnly": true
       },
@@ -4216,12 +4251,26 @@
       "path": "microsoft.extensions.logging.abstractions/3.1.28",
       "hashPath": "microsoft.extensions.logging.abstractions.3.1.28.nupkg.sha512"
     },
+    "Microsoft.Extensions.Logging.Configuration/3.1.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-j4/ktr1coUddmVSwzx3F8yaOVebRyu+wMGyAui17wVoX2wiHRBSNCHOgtffmDZIfiCGIE357Ps3RbgxOPtRZZQ==",
+      "path": "microsoft.extensions.logging.configuration/3.1.22",
+      "hashPath": "microsoft.extensions.logging.configuration.3.1.22.nupkg.sha512"
+    },
     "Microsoft.Extensions.Options/3.1.28": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-uXiv46Bfd8bDvWng27u9MSOhwQ1otkNf9mf+NzBa3Ty/8MlutuUCIXpUzFo2bo3TvoZ4+VONrSQEHhWHeIQDDw==",
       "path": "microsoft.extensions.options/3.1.28",
       "hashPath": "microsoft.extensions.options.3.1.28.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dkCz+MybMd3q0r7U6d8KXeLI6Vlv7eNF2pjq2LKFixGKpg7N8/i+iXgQDlu06CuqoFTI1esjz9kbzk4nfWicQg==",
+      "path": "microsoft.extensions.options.configurationextensions/3.1.22",
+      "hashPath": "microsoft.extensions.options.configurationextensions.3.1.22.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/3.1.28": {
       "type": "package",
@@ -4523,6 +4572,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "Seq.Extensions.Logging/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9UjqNIUdGzA+ynTyBPeaYtNEzPMwOw15FFwwqfllmXcpLOTjA9Y0KXJ7ToBGG9YUU893996PSX6G6YwQyhTCxg==",
+      "path": "seq.extensions.logging/6.1.0",
+      "hashPath": "seq.extensions.logging.6.1.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
@@ -5596,11 +5652,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Logging.Configuration/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.Extensions.Logging.Console/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -5627,11 +5678,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.ObjectPool/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
