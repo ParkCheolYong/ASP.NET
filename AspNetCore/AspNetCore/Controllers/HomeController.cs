@@ -337,23 +337,52 @@ namespace AspNetCore.Controllers
 	// IAuthorizationFilter를 이용해서 재정의 가능하지만
 	// 이미 만들어져 있는 기본 Authorization Filter 사용 권고 (기능이 충분히 많음)
 	// [Authorize]
+	/***********************************************************************************************/
 
-	public class TestResourceFilter : Attribute, IResourceFilter, IOrderedFilter
-	{
-		public int Order => -1;
+	// Authentication (인증) + Authorization (권한)
 
-		// 전
-		public void OnResourceExecuting(ResourceExecutingContext context)
-		{
-			Console.WriteLine("Resource Executing");
-		}
+	// 기본 용어
+	// Principal : 사용자
+	// Claim : 이메일, 이름, 생일, Admin권한 등 Principal에 대한 정보
 
-		// 후
-		public void OnResourceExecuted(ResourceExecutedContext context)
-		{
-			Console.WriteLine("Resource Executed");
-		}
-	}
+	// Kestrel은 Request 올 때마다 HttpContext 생성 해 줌
+	// HttpContext.User를 이용해서 현재 사용자(Principal) 확인
+	// Default 상태로는 익명 + Unauthenticated + Claim 0개
+
+	// 일반 웹서버 인증
+	//  1) 사용자가 identifier(아이디)와 secret(비밀번호) 웹서버에 전송
+	//  2) 웹서버에서 보내준 정보가 맞는지 확인 - DB
+	//  3) 사용자의 인증 정보 생성
+	//  4) 쿠키 - 암호화된 인증정보(principal) 저장
+
+	// ASP.NET Core
+	//  1) HttpContext.USER = 무인증 상태의 익명 사용자 principal
+	//  2) LoginController로 id/secret 전송
+	//  3) SignManager를 이용해서 DB에서 사용자 정보를 갖고오고 정보 확인
+	//  4) 정보가 맞다면 HttpContext.User = new ClaimPrincipal 로 교체
+	//  5) 새 Principal에 알맞는 Claim을 붙여준다
+    //  6) 사용자한테 Cookie 정보 전송
+
+	// Asp.Net Core (일반 상황)
+	//  1) 첫 인증 때는 위의 상황을 따르고 (Line : 358)
+	//  2) Request 정보에서 쿠키를 찾아서 쿠키가 정상적인지 체크
+	//  3) OK
+
+	// 문제 상황
+	// 브라우저(Chrome) 등에 쿠키 사용 시, HTTP 요청할 때 자동으로 포함
+	// 쿠키 - 단일 도메인에서만 유효
+	// WebAPI의 경우 기능별로 서버를 분리하는 경우가 많은데, 이럴 때는 쿠키를 사용하기엔 애매함
+	// 대안 : 토큰을 이용한 인증
+
+	// 인증을 직접 구현하는 것은 살짝 위험
+	// ASP.NET Core Identity
+	// - User/Claim 관련된 DB 생성 관리
+	// - Password Validation
+	// - User Account Lock (BruteForce Attack)
+	// - 2FA (Two Factor Authentication) SNS 인증
+	// - Password Reset (비번 분실 -> 임시비번)
+	// - 3rd Party Libarary (Facebook, Google, Twitter등 연동)
+	
 
 	[Route("Home")]
 	public class HomeController : Controller
@@ -364,7 +393,6 @@ namespace AspNetCore.Controllers
 
 		[Route("Index")]
 		[Route("/")]
-		[TestResourceFilter]
 		[Authorize]
 		public IActionResult Index()
 		{

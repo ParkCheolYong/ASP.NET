@@ -28,7 +28,7 @@ namespace AspNetCore
 		{
 			services.AddControllersWithViews(options =>
 			{
-				options.Filters.Add<TestResourceFilter>();
+				//options.Filters.Add<TestResourceFilter>();
 			});
 
 			// DI 서비스란? SRP (Single Responsibility Principle)
